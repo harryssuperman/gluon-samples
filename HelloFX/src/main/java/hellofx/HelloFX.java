@@ -1,18 +1,18 @@
 /**
  * Copyright (c) 2019 Gluon
  * All rights reserved.
- *
+ * <p>
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
- *     * Redistributions of source code must retain the above copyright
+ * * Redistributions of source code must retain the above copyright
  * notice, this list of conditions and the following disclaimer.
- *     * Redistributions in binary form must reproduce the above copyright
+ * * Redistributions in binary form must reproduce the above copyright
  * notice, this list of conditions and the following disclaimer in the
  * documentation and/or other materials provided with the distribution.
- *     * Neither the name of Gluon, any associated website, nor the
+ * * Neither the name of Gluon, any associated website, nor the
  * names of its contributors may be used to endorse or promote products
  * derived from this software without specific prior written permission.
- *
+ * <p>
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
  * ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
  * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -35,6 +35,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 
 public class HelloFX extends Application {
 
@@ -43,14 +45,14 @@ public class HelloFX extends Application {
         String javafxVersion = System.getProperty("javafx.version");
         Label label = new Label("Hello, JavaFX " + javafxVersion + ", running on Java " + javaVersion + ".");
 
-        ImageView imageView = new ImageView(new Image(HelloFX.class.getResourceAsStream("/hellofx/openduke.png")));
+        ImageView imageView = new ImageView(new Image(Objects.requireNonNull(HelloFX.class.getResourceAsStream("/hellofx/openduke.png"))));
         imageView.setFitHeight(200);
         imageView.setPreserveRatio(true);
 
         VBox root = new VBox(30, imageView, label);
         root.setAlignment(Pos.CENTER);
         Scene scene = new Scene(root, 640, 480);
-        scene.getStylesheets().add(HelloFX.class.getResource("styles.css").toExternalForm());
+        scene.getStylesheets().add(Objects.requireNonNull(HelloFX.class.getResource("styles.css")).toExternalForm());
         stage.setScene(scene);
         stage.show();
     }

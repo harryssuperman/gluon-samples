@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
@@ -16,6 +17,10 @@
 
     <properties>
         <main.class>hellofx.HelloFX</main.class>
+        <android-keystore-path></android-keystore-path>
+        <android-keystore-password></android-keystore-password>
+        <android-key-alias></android-key-alias>
+        <android-key-password></android-key-password>
     </properties>
 
     <dependencies>
@@ -31,7 +36,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
+                <version>3.10.1</version>
             </plugin>
 
             <plugin>
@@ -48,8 +53,51 @@
                 <artifactId>gluonfx-maven-plugin</artifactId>
                 <version>${gluonfx.maven.plugin.version}</version>
                 <configuration>
-                     <target>${gluonfx.target}</target>
-                     <mainClass>${main.class}</mainClass>
+                    <target>${gluonfx.target}</target>
+                    <mainClass>${main.class}</mainClass>
+                    <bundlesList></bundlesList>
+                    <resourcesList></resourcesList>
+                    <reflectionList></reflectionList>
+                    <jniList></jniList>
+                    <attachList></attachList>
+                    <nativeImageArgs></nativeImageArgs>
+                    <linkerArgs></linkerArgs>
+                    <runtimeArgs></runtimeArgs>
+                    <verbose>true</verbose>
+                    <graalvmHome></graalvmHome>
+                    <javaStaticSdkVersion>17.0.3+7</javaStaticSdkVersion>
+                    <javafxStaticSdkVersion>17.0.3+7</javafxStaticSdkVersion>
+                    <enableSWRendering>false</enableSWRendering>
+                    <remoteHostName></remoteHostName>
+                    <remoteDir></remoteDir>
+                    <appIdentifier></appIdentifier>
+                    <releaseConfiguration>
+                        <!-- all targets -->
+                        <packageType></packageType>
+                        <description></description>
+                        <vendor></vendor>
+                        <!-- macOS -->
+                        <macAppStore></macAppStore>
+                        <macSigningUserName></macSigningUserName>
+                        <macAppCategory></macAppCategory>
+                        <!-- macOS/iOS -->
+                        <bundleName></bundleName>
+                        <bundleVersion>1.0</bundleVersion>
+                        <bundleShortVersion>1.0</bundleShortVersion>
+                        <providedSigningIdentity></providedSigningIdentity>
+                        <providedProvisioningProfile></providedProvisioningProfile>
+                        <skipSigning>false</skipSigning>
+                        <!-- iOS Simulator -->
+                        <simulatorDevice></simulatorDevice>
+                        <!-- Android -->
+                        <appLabel></appLabel>
+                        <versionCode>1</versionCode>
+                        <versionName>1.0</versionName>
+                        <providedKeyStorePath>${android-keystore-path}</providedKeyStorePath>
+                        <providedKeyStorePassword>${android-keystore-password}</providedKeyStorePassword>
+                        <providedKeyAlias>${android-key-alias}</providedKeyAlias>
+                        <providedKeyAliasPassword>${android-key-password}</providedKeyAliasPassword>
+                    </releaseConfiguration>
                 </configuration>
             </plugin>
         </plugins>
